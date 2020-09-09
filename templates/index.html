@@ -1,86 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audio Classifier</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<meta charset="UTF-8">
+<title>Music Genre Classifier</title>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+
+
+.btn{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type=text] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.form-group {
+  padding-left: 2cm;
+}
+</style>
+
+
+
+      
 </head>
-<body>
 
-<div class="jumbotron jumbotron  " style="background-color: #222222; text-align: center; border-color: #2b669a;color: gainsboro">
-    <div class="container" >
-        <h1 id="hea">Audio Classifier</h1>
-        <P class="lead py-2"> Classify Between : Rock & Hip-Hop</P>
+<body >
+ <div class="music">
+	<h1 style="background-color:powderblue; text-align: center;font-family: Sofia;font-size: 50px;" ><br>Classify Music Genre <br><br></h1>
 
-
-    </div>
-</div></div><section>
-<div align="center" >
-<div class="col-lg-10" style="background-color: #9acfea;height:900px;width: 600px">
-
-<br>
-
-    <h2 >Audio Paramters</h2><br>
-
+     <!-- Main Input For Receiving Query to our ML -->
     <form method="POST" action="/predict">
-        <div class="form-group">
+            <div class="form-group">
                     <label for="acousticness">Acousticness</label>
-                    <input type="acousticness" class="form-control" style="width:470px;" id="acousticness" name="acousticness" placeholder="Type: 0.992736"
-                        required>
+                    <input type="acousticness" class="form-control" style="width:470px;" id="acousticness" name="acousticness" placeholder="Eg: 0.416675" required>
                 </div>
                 <div class="form-group">
                     <label for="danceability">Danceability</label>
-                    <input type="danceability" class="form-control" style="width:470px;" id="danceability" name="danceability" placeholder="Type: 0..304324"
-                        required>
+                    <input type="danceability" class="form-control" style="width:470px;" id="danceability" name="danceability" placeholder="Eg: 0.675894" required>
                 </div>
                 <div class="form-group">
                     <label for="energy">Energy</label>
-                    <input type="energy" class="form-control" style="width:470px;" id="energy" name="energy" placeholder="Type: 0.854678"
-                        required>
+                    <input type="energy" class="form-control" style="width:470px;" id="energy" name="energy" placeholder="Eg: 0.634476" required>
                 </div>
                 <div class="form-group">
                     <label for="instrumentalness">Instrumentalness</label>
-                    <input type="instrumentalness" class="form-control" style="width:470px;" id="instrumentalness" name="instrumentalness" placeholder="Type: 0.9927492521"
-                        required>
+                    <input type="instrumentalness" class="form-control" style="width:470px;" id="instrumentalness" name="instrumentalness" placeholder="Eg: 0.010628" required>
                 </div>
                 <div class="form-group">
                     <label for="liveness">Liveness</label>
-                    <input type="liveness" class="form-control" style="width:470px;" id="liveness" name="liveness" placeholder="Type: 0.242765"
-                        required>
+                    <input type="liveness" class="form-control" style="width:470px;" id="liveness" name="liveness" placeholder="Eg: 0.177647" required>
                 </div>
                 <div class="form-group">
                     <label for="speechiness">Speechiness</label>
-                    <input type="speechiness" class="form-control" style="width:470px;" id="speechiness" name="speechiness" placeholder="Type: 0.03497"
-                        required>
+                    <input type="speechiness" class="form-control" style="width:470px;" id="speechiness" name="speechiness" placeholder="Eg: 0.159310" required>
                 </div>
                 <div class="form-group">
                     <label for="tempo">Tempo</label>
-                    <input type="tempo" class="form-control" style="width:470px;" id="tempo" name="tempo" placeholder="Type: 85.082"
-                        required>
+                    <input type="tempo" class="form-control" style="width:470px;" id="tempo" name="tempo" placeholder="Eg: 165.922" required>
                 </div>
                 <div class="form-group">
                     <label for="valence">Valence</label>
-                    <input type="valence" class="form-control" style="width:470px;" id="valence" name="valence" placeholder="Type: 0.074535"
-                        required>
+                    <input type="valence" class="form-control" style="width:470px;" id="valence" name="valence" placeholder="Eg: 0.576661" required>
                 </div>
-        <br>
-        <button class="btn btn-default" type="submit">Predict</button>
-    </form>
-</div>
-</div><div class="jumbotron jumbotron " id="prev" style="background-color:#393234;color:gainsboro">
-    <br>
-    <h2 class="display-6 text-center">Using these Parameters We Predict that this is :</h2>
-    <h1 class="display-6 text-center" style="color: #2aabd2"> {{ pred_name }}</h1>
-</div>
-</section>
+        
 
+        <center><button type="submit" class="btn ">Predict</button></center>
+        
+    </form>
+
+   <br>
+   <br>
+    <div class="prediction text-center">
+            <h2 class="display-6 text-center">Music Type : {{pred_name}}</h2>
+            <br><br><br>
+    </div>
 
 
 </body>
