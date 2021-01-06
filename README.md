@@ -10,14 +10,14 @@ This is the final project made during my internship in Technocolabs. In this pro
 We were given the task to build a classifier for this dataset which was highly unbalanced and then deploying that model to any of the cloud services.
 
 # Tech Stack
-Python
-Numpy
-Pandas
-Seaborn
-Sklearn
-Flask
-HTML
-CSS
+* Python
+* Numpy
+* Pandas
+* Seaborn
+* Sklearn
+* Flask
+* HTML
+* CSS
 
 # How to use?
 Enter the relevant values in the form field and click Predict. You will get the prediction depicting the genre.
