@@ -23,6 +23,6 @@ We were given the task to build a classifier for this dataset which was highly u
 Enter the relevant values in the form field and click Predict. You will get the prediction depicting the genre.
 
 # Link to the website?
-Sure here you go: {Music Genre Predict}(https://ml-music-genre-classification.herokuapp.com/)
+Sure here you go: [Classify Music Genre](https://ml-music-genre-classification.herokuapp.com/)
 
 
